@@ -9,9 +9,11 @@ import ImageSlider from './components/imageSlider';
 import Layout from './components/layout';
 import Main from './components/main';
 import MinusIcon from './components/icons/minus';
-import Music from './components/music';
+// import Music from './components/music';
+import MusicRaw from './components/playList/musicPlay';
 import PlusIcon from './components/icons/plus';
 import Tabs from './components/tabs';
+import PlayList from './components/playList';
 
 import productList from './fakeData/MOCK_DATA.json';
 import imageList from './fakeData/image.json';
@@ -41,6 +43,9 @@ function App() {
             margin: '30px',
           }}
         >
+
+          <PlayList />
+
           <Button
             icon={<MinusIcon />}
             title="Trừ"
@@ -80,7 +85,8 @@ function App() {
             titleClass="title_secondary"
           />
 
-          <Music />
+          {/* <Music /> */}
+          <MusicRaw />
 
           <ImageSlider imageList={imageList} />
 
