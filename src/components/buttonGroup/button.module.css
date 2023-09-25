@@ -6,6 +6,11 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.button:hover {
+  scale: 1.01;
 }
 
 .button_primary {
@@ -41,7 +46,6 @@
 .title {
   font-size: 17px;
   font-weight: bold;
-  margin-left: 20px;
 }
 
 .title_primary {
@@ -54,4 +58,8 @@
 
 .red {
   color: red;
+}
+
+.btnBlock > span:first-child {
+  margin-right: 20px;
 }

@@ -2,15 +2,19 @@ import { useEffect, useState } from 'react';
 
 import AppleIcon from './components/icons/apple';
 import Button from './components/buttonGroup/button';
+import CardList from './components/cardList';
 import FacebookIcon from './components/icons/facebook';
 import GoogleIcon from './components/icons/google';
+import ImageSlider from './components/imageSlider';
 import Layout from './components/layout';
 import Main from './components/main';
 import MinusIcon from './components/icons/minus';
+import Music from './components/music';
 import PlusIcon from './components/icons/plus';
-import CardList from './components/cardList';
+import Tabs from './components/tabs';
 
 import productList from './fakeData/MOCK_DATA.json';
+import imageList from './fakeData/image.json';
 
 import './App.css';
 
@@ -56,7 +60,7 @@ function App() {
 
           <Button
             title="Nhân đôi"
-            icon={<i class="fa-solid fa-xmark fa-2xl"></i>}
+            icon={<i className="fa-solid fa-xmark fa-2xl"></i>}
             buttonClass="button_secondary"
             iconClass="icon_secondary"
             titleClass="title_secondary"
@@ -75,6 +79,12 @@ function App() {
             iconClass="icon_secondary"
             titleClass="title_secondary"
           />
+
+          <Music />
+
+          <ImageSlider imageList={imageList} />
+
+          <Tabs />
 
           <CardList list={products} />
         </div>
