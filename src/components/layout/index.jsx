@@ -5,7 +5,6 @@ import Footer from '../footer';
 import './layout.css';
 
 export default function Layout(props) {
-  console.log('««««« props »»»»»', props);
   const { children, title } = props;
   // const children = props.children;
   // const title = props.title;
@@ -14,7 +13,7 @@ export default function Layout(props) {
     <>
       <Header />
 
-      <aside className="aside-left"></aside>
+      {/* <aside className="aside-left"></aside> */}
 
         <h1>{title}</h1>
 
