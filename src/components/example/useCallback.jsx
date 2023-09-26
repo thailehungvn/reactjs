@@ -1,6 +1,6 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState, memo } from 'react';
 
-const ChildComponent = React.memo(({ onClick }) => {
+const ChildComponent = memo(({ onClick }) => {
   console.log('ChildComponent rendering');
   return <button onClick={onClick}>Click me</button>;
 });
@@ -30,11 +30,11 @@ const ParentComponent = () => {
   const expensiveResult = useMemo(() => {
     console.log('Đang tính expensiveResult');
     let result = 0;
-    for (let i = 0; i < 1000000000; i++) {
+    for (let i = 0; i < 10000; i++) {
       result += i;
     }
     return result;
-  }, []);
+  }, [])
 
   return (
     <div>

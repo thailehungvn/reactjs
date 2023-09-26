@@ -10,7 +10,6 @@ import PlayList from 'pages/playList';
 import ProductsPage from 'pages/products';
 import SliderPage from 'pages/slider';
 import TabPage from 'pages/tabs';
-import Template from 'pages/template';
 import NotFoundPage from 'pages/404';
 import CounterApp from 'pages/counterApp';
 import TodoApp from 'pages/todoApp';
@@ -18,8 +17,10 @@ import Profile from 'pages/profile';
 import AntdHomePage from 'pages/antd/homePage';
 import ProductsPage2 from 'pages/productsPage';
 import ProductsDetail from 'pages/productsPage/detail';
+import Login from 'pages/login';
 
-const routers = [
+export const routers = [
+  { path: LOCATIONS.LOGIN, name: "Login Page", element: <Login /> },
   {
     path: LOCATIONS.HOME_PAGE,
     name: "Layout",
@@ -43,7 +44,6 @@ const routers = [
       // { isRoot: true, name: "Home", element: <AntdHomePage /> },
     ]
   },
-  { path: LOCATIONS.TEMPLATE, name: "Template", element: <Template /> },
   { path: LOCATIONS.COUNTER, name: "Counter", element: <CounterApp /> },
   { path: LOCATIONS.TODO, name: "Todo", element: <TodoApp /> },
   { path: LOCATIONS.PRODUCTS_PAGE, name: "Products", element: <ProductsPage2 /> },
@@ -51,4 +51,6 @@ const routers = [
   { path: "*", element: <NotFoundPage /> },
 ];
 
-export default routers;
+export const unAuthRouter = [
+  { path: LOCATIONS.LOGIN, name: "Login Page", element: <Login /> },
+];

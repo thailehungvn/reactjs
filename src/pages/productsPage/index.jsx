@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import { Space, Table } from 'antd';
 
 import { LOCATIONS } from 'constants/index';
 import { formatter } from 'helper';
+import { axiosAdmin } from 'helper/axiosClient';
 
 const columns = [
   {
     title: 'Name',
-    dataIndex: 'name',
+    // dataIndex: 'name',
     key: 'name',
-    render: (text, record) => <Link to={`/${LOCATIONS.PRODUCTS_PAGE}/${record._id}`}>{text}</Link>,
+    render: (text, record, index) => <Link to={`/${LOCATIONS.PRODUCTS_PAGE}/${record._id}`}>{record.name}</Link>,
   },
   {
     title: 'Description',
@@ -59,6 +59,14 @@ const columns = [
     dataIndex: 'stock',
     key: 'stock',
   },
+  {
+    title: 'Thao tác',
+    key: 'action',
+    render: () => <span>
+      <button>XÓA</button>
+      <button>Sửa</button>
+    </span>,
+  },
 ];
 // 
 const ProductsPage = () => {
@@ -66,10 +74,9 @@ const ProductsPage = () => {
 
   const getProductsData = async () => {
     try {
-      const url = 'https://batch-293-0-nodejs.onrender.com/user/products';
-      // const url = 'https://batch-293-0-nodejs.onrender.com/admin/products';
+      const url = '/products';
 
-      const res = await axios.get(url);
+      const res = await axiosAdmin.get(url);
 
       setProducts(res.data.payload);
     } catch (err) {

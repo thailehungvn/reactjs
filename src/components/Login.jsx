@@ -42,7 +42,7 @@ const Login = (props) => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (me._id) return history.push(locations.HOME_PAGE);
+    if (me._id) return ;
   }, [me._id]);
 
   useEffect(() => {

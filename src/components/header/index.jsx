@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { LOCATIONS } from 'constants/index';
 
 import Loading from 'components/loading';
-import routers from 'router/router';
+import { routers } from 'router/router';
 
 function Header() {
   const profile = useSelector((state) => state.profileReducer.profile);

@@ -1,12 +1,17 @@
 import { useEffect } from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import routers from 'router/router';
+import { routers, unAuthRouter } from 'router/router';
 import { actionGetMyProfile } from 'store/profile/action';
+import { axiosAdmin } from 'helper/axiosClient';
+import { LOCATIONS } from 'constants/index';
+import Loading from 'components/loading';
+import LoginPage from 'pages/login';
 
 function App() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // const getUserProfile = async () => {
   //   try {
@@ -22,38 +27,65 @@ function App() {
   //   }
   // };
 
-
   useEffect(() => {
     // getUserProfile();
     dispatch(actionGetMyProfile());
   }, [dispatch]);
-  
-  return (
-    <BrowserRouter>
-      <Routes>
-        {
-          routers.map((r, idx) => {
-            if (r.children && r.children.length > 0) {
-              return (
-                <Route path={r.path} element={r.element} key={idx}>
-                  {
-                    r.children.map((rc, index) => {
-                      if (rc.isRoot) {
-                        return <Route index element={rc.element} key={index} />
-                      }
 
-                      return <Route path={rc.path} element={rc.element} key={index} />
-                    })
-                  }
-                </Route>
-              )
-            }
+  const token = window.localStorage.getItem('TOKEN');
 
-            return <Route path={r.path} element={r.element} key={idx}/>
-          })
+  useEffect(() => {
+    if (token) {
+      axiosAdmin.defaults.headers.Authorization = `Bearer ${token}`;
+    } else {
+      navigate(LOCATIONS.LOGIN);
+    }
+  }, []);
+
+  return !token ? (
+    <Routes>
+      {unAuthRouter.map((r, idx) => {
+        if (r.children && r.children.length > 0) {
+          return (
+            <Route path={r.path} element={r.element} key={idx}>
+              {r.children.map((rc, index) => {
+                if (rc.isRoot) {
+                  return <Route index element={rc.element} key={index} />;
+                }
+
+                return (
+                  <Route path={rc.path} element={rc.element} key={index} />
+                );
+              })}
+            </Route>
+          );
         }
-      </Routes>
-    </BrowserRouter>
+
+        return <Route path={r.path} element={r.element} key={idx} />;
+      })}
+    </Routes>
+  ) : (
+    <Routes>
+      {routers.map((r, idx) => {
+        if (r.children && r.children.length > 0) {
+          return (
+            <Route path={r.path} element={r.element} key={idx}>
+              {r.children.map((rc, index) => {
+                if (rc.isRoot) {
+                  return <Route index element={rc.element} key={index} />;
+                }
+
+                return (
+                  <Route path={rc.path} element={rc.element} key={index} />
+                );
+              })}
+            </Route>
+          );
+        }
+
+        return <Route path={r.path} element={r.element} key={idx} />;
+      })}
+    </Routes>
   );
 }
 
