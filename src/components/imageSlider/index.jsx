@@ -25,7 +25,7 @@ function ImageSlider(props) {
   }
 
   return (
-    <div>
+    <div className="d-flex flex-column align-items-center">
       <img
         style={{
           width: '600px',

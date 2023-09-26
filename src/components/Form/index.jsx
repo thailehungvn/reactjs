@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
@@ -40,6 +40,7 @@ function Form(props) {
   //   alert('submit form');
   // }, []);
 
+  console.log('««««« log in form component í rerender »»»»»');
 
   const onChangeName = useCallback((e) => {
     setName(e.target.value);
@@ -162,4 +163,7 @@ function Form(props) {
   );
 }
 
-export default Form;
+// export default Form;
+// const componentA = memo(Form);
+// export default componentA;
+export default memo(Form);

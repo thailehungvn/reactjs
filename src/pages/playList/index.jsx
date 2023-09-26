@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect, useState } from 'react';
-import MusicPlay from 'components/playList/musicPlay';
+import MusicPlay from 'pages/playList/musicPlay';
 
 import './playList.css';
 
