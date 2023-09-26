@@ -10,6 +10,8 @@ import SliderPage from 'pages/slider';
 import TabPage from 'pages/tabs';
 import Template from 'pages/template';
 import NotFoundPage from 'pages/404';
+import CounterApp from 'pages/counterApp';
+import TodoApp from 'pages/todoApp';
 
 const LOCATIONS = {
   HOME_PAGE: '/',
@@ -19,6 +21,8 @@ const LOCATIONS = {
   SLIDE: 'slider',
   PRODUCTS: 'products',
   TEMPLATE: 'template',
+  COUNTER: 'counter',
+  TODO: 'todo',
 }
 
 const routers = [
@@ -36,6 +40,8 @@ const routers = [
     ]
   },
   { path: LOCATIONS.TEMPLATE, element: <Template /> },
+  { path: LOCATIONS.COUNTER, element: <CounterApp /> },
+  { path: LOCATIONS.TODO, element: <TodoApp /> },
   { path: "*", element: <NotFoundPage /> },
 ];
 

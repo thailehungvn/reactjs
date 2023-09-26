@@ -13,7 +13,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { axiosClient } from 'helper/axiosClient';
 
 function Template() {
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(0);
 
   const onSubmitAsync = async () => {
     const data = {
@@ -41,14 +41,15 @@ function Template() {
           margin: '30px',
         }}
       >
-        <Button
+        <h1 className="mb-4">{count}</h1>
+        {/* <Button
           icon={<MinusIcon />}
           title="Call API"
           buttonClass="button_secondary"
           iconClass="icon_secondary"
           titleClass="title_secondary"
           onClick={onSubmitAsync}
-        />
+        /> */}
 
         <Button
           icon={<MinusIcon />}
@@ -77,7 +78,7 @@ function Template() {
           onClick={() => setCount(count * 2)}
         />
 
-        <Button icon={<AppleIcon />} title="Continue with Apple" />
+        {/* <Button icon={<AppleIcon />} title="Continue with Apple" />
 
         <Button icon={<GoogleIcon />} title="Continue with Google" />
 
@@ -87,7 +88,7 @@ function Template() {
           buttonClass="button_secondary"
           iconClass="icon_secondary"
           titleClass="title_secondary"
-        />
+        /> */}
       </div>
     </div>
   );
