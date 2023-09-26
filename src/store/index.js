@@ -1,42 +1,17 @@
-import { createStore, compose, applyMiddleware } from 'redux';
+import { legacy_createStore  as createStore, compose, applyMiddleware } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+
 import rootReducer from './rootReducer';
-// REDUX THUNK
-import thunkMiddleware from 'redux-thunk';
+import rootSaga from './rootSagas';
 
-// CUSTOM LOGGER MIDDLEWARE
-const loggerMiddleware = ({ getState }) => {
-  return (next) => (action) => {
-    console.log('state before dispatch', getState());
-    console.log('will dispatch', action);
+const sagaMiddleware = createSagaMiddleware();
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-    // Call the next dispatch method in the middleware chain.
-    const returnValue = next(action);
-
-    console.log('state after dispatch', getState());
-
-    // This will likely be the action itself, unless
-    // a middleware further in chain changed it.
-    return returnValue;
-  };
-};
-
-// MIDDLEWARE
-const middewares = [
-  // THUNK
-  thunkMiddleware,
-  // Others
-  // loggerMiddleware,
-];
-
-// REDUX STORE
 const store = createStore(
   rootReducer,
-
-  compose(
-    applyMiddleware(...middewares),
-    // REDUX TOOLS (DEBUG)
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  ),
+  composeEnhancers(applyMiddleware(sagaMiddleware))
 );
+
+sagaMiddleware.run(rootSaga);
 
 export default store;
