@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import './sign-in.css';
+import axios from 'axios';
 
 const REGISTER_STEP = {
   EMAIL_STEP: 1,
@@ -31,6 +32,19 @@ function Register(props) {
     },
   });
 
+  // const onSubmitAsync = async (data) => {
+  //   const url = 'https://batch-293-0-nodejs.onrender.com/admin/employees/login';
+  
+  //   try {
+  //     // Promise
+  //     const response = await axios.post(url, data);
+  //     console.log(response.data);
+  //   } catch (err) {
+  //     console.error(err);
+  //     console.log('Login thất bại');
+  //   }
+  // };
+
   const validationInfo = useFormik({
     initialValues: {
       name: '',
@@ -53,6 +67,7 @@ function Register(props) {
 
     onSubmit: (values) => {
       const { name, password, confirmPassword } = values;
+      // const { email, password } = values;
 
       const data = {
         name,
@@ -60,6 +75,8 @@ function Register(props) {
         confirmPassword,
         email: validationEmail.values.email,
       };
+
+      // onSubmitAsync({ email, password })
 
       console.log('««««« Call API with value »»»»»', data);
 

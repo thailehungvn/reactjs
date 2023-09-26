@@ -8,7 +8,7 @@ function CardList(props) {
 
   return (
     <div className="card-wrapper">
-      {list.map((p) => (
+      {list && list.length > 0 && list.map((p) => (
         <span key={p.id}>
           <Card
             discounted={p.discounted}

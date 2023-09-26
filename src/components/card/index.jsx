@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatter, ratingStar } from '../../helper';
+import { formatter, ratingStar } from 'helper';
 
 import './card.css';
 
@@ -18,8 +18,6 @@ function Card(props) {
     stock,
     sold,
   } = props;
-
-
 
   return (
     <div className="card">
