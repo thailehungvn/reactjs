@@ -91,7 +91,7 @@ function Header() {
                 </ul>
 
                 <Link
-                  class="navbar-brand d-flex align-items-center"
+                  className="navbar-brand d-flex align-items-center"
                   to={LOCATIONS.MY_PROFILE}
                 >
                   <img
@@ -99,7 +99,7 @@ function Header() {
                     alt="avatar"
                     width="50"
                     height="50"
-                    class="d-inline-block align-text-top me-4 object-fit-cover border border-primary rounded-circle"
+                    className="d-inline-block align-text-top me-4 object-fit-cover border border-primary rounded-circle"
                   />
                   {profile.name}
                 </Link>

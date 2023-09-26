@@ -11,7 +11,7 @@ export default function Layout(props) {
     <>
       <Header />
 
-      <div className="container-lg d-flex justify-content-center my-4">
+      <div className="m-4">
         <Outlet />
       </div>
 

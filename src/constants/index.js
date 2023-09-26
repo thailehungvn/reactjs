@@ -9,4 +9,8 @@ export const LOCATIONS = {
   COUNTER: 'counter',
   TODO: 'todo',
   MY_PROFILE: 'my-profile',
+  ANT_DESIGN: '/antd',
+  ANT_DESIGN_HOME_PAGE: '/antd/home',
+  PRODUCTS_PAGE: 'products-page',
+  PRODUCTS_DETAIL_PAGE: 'products-page/:id',
 }

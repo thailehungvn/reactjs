@@ -250,7 +250,7 @@ function Register(props) {
 
         {currentStep === REGISTER_STEP.SUCCESS_STEP && (
           <>
-            <div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+            <div className="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
               Registed success!!!
             </div>
           </>
