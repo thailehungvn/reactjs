@@ -84,7 +84,7 @@ function ProductsPage(props) {
   
   const getProducts = async () => {
     try {
-      const url = 'https://64a021baed3c41bdd7a707f1.mockapi.io/products';
+      const url = 'https://nodejs-4fqb.onrender.com/products';
       const res = await axios.get(url);
       setProducts(res.data);
     } catch (err) {
