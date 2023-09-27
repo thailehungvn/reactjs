@@ -66,7 +66,7 @@ const ProductsPage = () => {
 
   const getProductsData = async () => {
     try {
-      const url = 'https://batch-293-0-nodejs.onrender.com/user/products';
+      const url = 'https://nodejs-4fqb.onrender.com/products';
       // const url = 'https://batch-293-0-nodejs.onrender.com/admin/products';
 
       const res = await axios.get(url);
