@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
 
-const endpoint = 'https://jsonplaceholder.typicode.com/users/1';
+const endpoint = 'https://nodejs-4fqb.onrender.com/products/users/1';
 
 export default {
   async getMyProfile() {
