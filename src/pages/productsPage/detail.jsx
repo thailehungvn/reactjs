@@ -12,7 +12,7 @@ function ProductDetail(props) {
 
   const getProductData = async () => {
     try {
-      const url = `https://batch-293-0-nodejs.onrender.com/user/products/${params.id}`;
+      const url = `https://nodejs-4fqb.onrender.com/products/${params.id}`;
 
       const res = await axios.get(url);
 
